@@ -10,14 +10,19 @@
     #include <stdlib.h>
     #include <stdbool.h>
     #include "my_str.h"
-    typedef int list_type;
+    typedef struct list_type{
+        int data;
+        int x;
+        int y;
+        struct link **sub_branches;
+    }list_type_t;
     typedef struct elt {
-        list_type data;
+        list_type_t data;
         struct elt *next;
         struct elt *prev;
     }elt_t;
     int get_list_size(elt_t * list);
-    int put_end_list(elt_t **list, list_type value);
+    int put_end_list(elt_t **list, list_type_t value);
     void print_linked_list(elt_t *list);
     void print_linked_list_and_empty(elt_t **list);
     void swap_two_first_element(elt_t **list);

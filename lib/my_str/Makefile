@@ -6,6 +6,7 @@
 ##
 
 SRC     =	my_count_nb_char_in_str.c					\
+			my_get_nbr.c								\
 			my_is_alpha.c								\
 			my_is_lower.c								\
 			my_is_num.c									\

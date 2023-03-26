@@ -12,9 +12,10 @@
     #include <unistd.h>
     #include <stdio.h>
     #include "my_str.h"
+    #include "my_int.h"
     #include "my_linked_list.h"
     #include "spliter.h"
     #define OK 0
     #define KO 84
-    int lem_in(int argc, char **argv);
+    int lem_in(void);
 #endif /* !LEM_IN_H_ */

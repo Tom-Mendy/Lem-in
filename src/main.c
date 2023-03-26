@@ -7,7 +7,7 @@
 
 #include "lem_in.h"
 
-int main(int argc, char **argv)
+int main(void)
 {
-    return lem_in(argc, argv);
+    return lem_in();
 }

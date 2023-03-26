@@ -8,14 +8,7 @@
 SRC			=	delete_actual_node_list.c				\
 				delete_first_element_list.c				\
 				get_list_size.c							\
-				list_is_sort.c							\
-				print_linked_list.c						\
-				print_linked_list_and_empty.c			\
-				push_first_element_into_other_list.c	\
 				put_end_list.c							\
-				rotate_list_first_to_last.c				\
-				rotate_list_last_to_first.c				\
-				swap_two_first_element.c
 
 EXT			=	../my_str/src/my_put_str.c				\
 				../my_str/src/my_put_char.c				\
