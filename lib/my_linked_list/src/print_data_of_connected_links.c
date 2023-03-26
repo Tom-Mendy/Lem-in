@@ -5,15 +5,20 @@
 ** print_data_of_connected_links
 */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include "graph.h"
+#include "my_linked_list.h"
 
-void print_data_of_connected_links(link_t *link)
+static void print_data_of_connected_links_sub(list_type_t *link)
+{
+    for (int i = 0; link->sub_branches[i] != NULL; i += 1) {
+        print_link(link->sub_branches[i]);
+    }
+}
+
+void print_data_of_connected_links(list_type_t *link)
 {
     if (link != NULL) {
-        for (int i = 0; link->sub_branches[i] != NULL; i += 1) {
-            print_link(link->sub_branches[i]);
+        if (link->sub_branches != NULL) {
+            print_data_of_connected_links_sub(link);
         }
     }
 }

@@ -5,10 +5,9 @@
 ** print_my_graph_data
 */
 
-#include <stdlib.h>
-#include "graph.h"
+#include "my_linked_list.h"
 
-void print_my_graph_data(link_t *graph)
+void print_my_graph_data(list_type_t *graph)
 {
     print_link(graph);
     if (graph->sub_branches != NULL) {

@@ -18,4 +18,5 @@
     #define OK 0
     #define KO 84
     int lem_in(void);
+    int free_map(char **map);
 #endif /* !LEM_IN_H_ */

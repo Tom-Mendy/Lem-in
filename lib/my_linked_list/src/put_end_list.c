@@ -7,7 +7,7 @@
 
 #include "my_linked_list.h"
 
-int put_end_list(elt_t **list, list_type_t value)
+int put_end_list(elt_t **list, list_type_t *value)
 {
     elt_t *node = *list;
     if (node != NULL) {

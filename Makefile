@@ -5,7 +5,8 @@
 ## makefile
 ##
 
-SRC			=	lem_in.c\
+SRC			=	lem_in.c	\
+				free_map.c	\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 

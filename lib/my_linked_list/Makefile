@@ -9,11 +9,16 @@ SRC			=	delete_actual_node_list.c				\
 				delete_first_element_list.c				\
 				get_list_size.c							\
 				put_end_list.c							\
+				connect_links.c							\
+				create_link.c							\
+				print_data_of_connected_links.c			\
+				print_link.c							\
+				print_my_graph_data.c					\
 
 EXT			=	../my_str/src/my_put_str.c				\
 				../my_str/src/my_put_char.c				\
 				../my_int/src/my_put_nbr.c				\
-				../my_str/src/my_str_len.c
+				../my_str/src/my_str_len.c				\
 
 DIR_SRC	=		$(addprefix src/, $(SRC))
 

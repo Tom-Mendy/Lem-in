@@ -5,11 +5,13 @@
 ** print_link
 */
 
-#include <stdio.h>
-#include "graph.h"
+#include <unistd.h>
+#include "my_linked_list.h"
 
-void print_link(link_t *link)
+void print_link(list_type_t *link)
 {
-    if (link != NULL)
-        printf("%d\n", link->data);
+    if (link != NULL){
+        my_put_nbr(link->data);
+        write(1, "\n", 1);
+    }
 }
