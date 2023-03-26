@@ -32,6 +32,5 @@ int lem_in(void)
         nread = getline(&line, &len, stdin);
     }
     free(line);
-    printf("nb_ant = {%d}\n", nb_ant);
     return 0;
 }
