@@ -5,8 +5,11 @@
 ## makefile
 ##
 
-SRC			=	lem_in.c	\
-				free_map.c	\
+SRC			=	lem_in.c					\
+				free_map.c					\
+				my_count_nb_char_in_str.c	\
+				display_all_link.c			\
+				print_cordinate_link.c		\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 

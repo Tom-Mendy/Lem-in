@@ -33,7 +33,7 @@ char **spliter(char *str, char const *const delimiter)
     }
     if (change_begin_str(&str, delimiter[0]) == 84)
         return NULL;
-    int num_words = my_count_nb_char_in_str(str, delimiter[0]);
+    int num_words = my_count_nb_char_in_str_spliter(str, delimiter[0]);
     if (num_words == -1)
         return NULL;
     char **word_array = malloc(sizeof(char *) * (num_words + 1));

@@ -19,4 +19,7 @@
     #define KO 84
     int lem_in(void);
     int free_map(char **map);
+    void display_all_link(elt_t *array_list);
+    int my_count_nb_char_in_str(char *str, char spe_char);
+    void print_cordinate_link(list_type_t *link);
 #endif /* !LEM_IN_H_ */

@@ -28,7 +28,10 @@ OBJ_EXT		=	$(EXT:.c=.o)
 
 NAME		=	../libmy_linked_list.a
 
-CPPFLAGS	=	-I include/ -I ../my_str/include -I ../my_int/include
+CPPFLAGS	=	-I include/\
+				-I ../my_str/include\
+				-I ../my_int/include\
+				-Wextra -Wall -ggdb3
 
 $(NAME):	$(OBJ) $(OBJ_EXT)
 	ar rcs $@ $(OBJ) $(OBJ_EXT)

@@ -5,8 +5,7 @@
 ## makefile
 ##
 
-SRC     =	my_count_nb_char_in_str.c					\
-			my_get_nbr.c								\
+SRC     =	my_get_nbr.c								\
 			my_is_alpha.c								\
 			my_is_lower.c								\
 			my_is_num.c									\
@@ -34,6 +33,7 @@ SRC     =	my_count_nb_char_in_str.c					\
 			my_str_n_cpy.c								\
 			my_str_str.c								\
 			my_str_up_case.c							\
+			spliter/my_count_nb_char_in_str_spliter.c	\
 			spliter/add_word.c							\
 			spliter/change_begin_str.c					\
 			spliter/generate_tab.c						\

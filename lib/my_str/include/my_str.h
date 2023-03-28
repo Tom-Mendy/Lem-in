@@ -39,6 +39,6 @@
     int my_is_upper(char const c);
     int my_is_printable(char const c);
     char *my_load_file_in_memory(const char *filename);
-    int my_count_nb_char_in_str(char *str, char spe_char);
+    int my_count_nb_char_in_str_spliter(char *str, char spe_char);
     char **my_load_file_in_array(const char *filename);
 #endif /* MY_STR_H_ */

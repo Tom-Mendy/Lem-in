@@ -5,12 +5,16 @@
 ** print_data_of_connected_links
 */
 
+#include <unistd.h>
+#include <stdio.h>
 #include "my_linked_list.h"
 
 static void print_data_of_connected_links_sub(list_type_t *link)
 {
-    for (int i = 0; link->sub_branches[i] != NULL; i += 1) {
-        print_link(link->sub_branches[i]);
+    if (link->sub_branches != NULL) {
+        for (int i = 0; link->sub_branches[i] != NULL; i += 1) {
+            printf("%d\n",(link->sub_branches[i]->data));
+        }
     }
 }
 
