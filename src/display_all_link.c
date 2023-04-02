@@ -15,7 +15,7 @@ void display_all_link(elt_t *array_list)
         print_cordinate_link(tmp->data);
         write(1, "-----------------------------------------\n", 43);
         print_data_of_connected_links(tmp->data);
-        write(1, "_________________________________________\n", 43);
+        write(1, "\n_________________________________________\n", 43);
         tmp = tmp->next;
     }
 }

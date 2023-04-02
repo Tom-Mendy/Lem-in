@@ -10,6 +10,9 @@ SRC			=	lem_in.c					\
 				my_count_nb_char_in_str.c	\
 				display_all_link.c			\
 				print_cordinate_link.c		\
+				free_link_list_room.c		\
+				connect_two_link.c			\
+				get_file_info.c				\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 

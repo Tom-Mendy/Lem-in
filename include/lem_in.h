@@ -15,6 +15,12 @@
     #include "my_int.h"
     #include "my_linked_list.h"
     #include "spliter.h"
+    typedef struct file_info_s{
+        int nb_ant;
+        int nb_start_room;
+        int nb_end_room;
+        elt_t *array_list;
+    }file_info_t;
     #define OK 0
     #define KO 84
     int lem_in(void);
@@ -22,4 +28,7 @@
     void display_all_link(elt_t *array_list);
     int my_count_nb_char_in_str(char *str, char spe_char);
     void print_cordinate_link(list_type_t *link);
+    void free_link_list_room(elt_t *array_list);
+    int connect_two_link(elt_t *array_list, int first_nb, int second_nb);
+    int get_file_info(file_info_t *file_info_n);
 #endif /* !LEM_IN_H_ */
