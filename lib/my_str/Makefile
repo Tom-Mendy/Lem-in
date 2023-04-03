@@ -44,7 +44,6 @@ SRC     =	my_get_nbr.c								\
 DIR_SRC	=		$(addprefix src/, $(SRC))
 
 TEST	=	test_my_put_char.c							\
-			test_load_file_in_memory.c					\
 			test_my_put_str.c							\
 			test_my_rev_str.c							\
 			test_my_show_word_array.c					\
@@ -69,6 +68,10 @@ TEST	=	test_my_put_char.c							\
 
 DIR_TESTS	=		$(addprefix tests/, $(TEST))
 
+EXT			=	../my_int/src/my_compute_power_rec.c	\
+
+OBJ_EXT		=		$(EXT:.c=.o)
+
 OBJ			=		$(DIR_SRC:.c=.o)
 
 OBJ_TESTS	=		$(DIR_TESTS:.c=.o)
@@ -77,8 +80,8 @@ CPPFLAGS	= -I include -Wextra -Wall -ggdb3
 
 NAME		=		../libmy_str.a
 
-$(NAME):		$(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME):		$(OBJ) $(OBJ_EXT)
+	ar rcs $(NAME) $(OBJ) $(OBJ_EXT)
 
 all: $(NAME)
 
@@ -94,7 +97,7 @@ re: fclean all
 
 unit_tests: re
 	mkdir unit_tests
-		gcc -o unit_tests/unit_tests $(DIR_SRC) $(DIR_TESTS) -I include/\
+		gcc -o unit_tests/unit_tests $(DIR_SRC) $(EXT) $(DIR_TESTS) -I include/\
 		--coverage -lcriterion
 
 tests_run:	unit_tests

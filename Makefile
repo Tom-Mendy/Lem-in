@@ -15,7 +15,9 @@ SRC			=	lem_in.c					\
 				get_file_info.c				\
 				my_load_stdin_in_array.c	\
 				my_load_stdin_in_memory.c	\
-
+				clear_commente_in_file.c	\
+				add_line_info_to_struct.c	\
+				is_start_end.c				\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
