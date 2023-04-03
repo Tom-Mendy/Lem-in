@@ -31,4 +31,6 @@
     void free_link_list_room(elt_t *array_list);
     int connect_two_link(elt_t *array_list, int first_nb, int second_nb);
     int get_file_info(file_info_t *file_info_n);
+    char *my_load_stdin_in_memory(void);
+    char **my_load_stdin_in_array(void);
 #endif /* !LEM_IN_H_ */

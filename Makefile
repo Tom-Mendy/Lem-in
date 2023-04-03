@@ -13,6 +13,9 @@ SRC			=	lem_in.c					\
 				free_link_list_room.c		\
 				connect_two_link.c			\
 				get_file_info.c				\
+				my_load_stdin_in_array.c	\
+				my_load_stdin_in_memory.c	\
+
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 

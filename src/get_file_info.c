@@ -9,7 +9,6 @@
 
 int point_with_cordinate(char *line, ssize_t nread, elt_t **array_list)
 {
-    write(1, line, nread);
     char **str_plit = spliter(line, " ");
     list_type_t *tmp = create_link(my_get_nbr(str_plit[0]),
     my_get_nbr(str_plit[1]), my_get_nbr(str_plit[2]));
@@ -22,14 +21,15 @@ int add_line_info_to_struct(char *line, ssize_t nread, elt_t **array_list)
 {
     int nb_space = my_count_nb_char_in_str(line, ' ');
     int nb_dash = my_count_nb_char_in_str(line, '-');
-    if (my_str_cmp(line, "##start\n") == OK)
-        write(1, line, nread);
-    if (my_str_cmp(line, "##end\n") == OK)
-        write(1, line, nread);
+    if (my_str_cmp(line, "##start\n") == OK){
+        int a = 1;
+    }
+    if (my_str_cmp(line, "##end\n") == OK){
+        int b = 1;
+    }
     if (nb_space == 2)
         point_with_cordinate(line, nread, array_list);
     if (nb_dash == 1 && line[0] != '-' && line[my_str_len(line) - 1] != '-'){
-        write(1, line, nread);
         char **str_plit = spliter(line, "-");
         int first_nb = my_get_nbr(str_plit[0]);
         int second_nb = my_get_nbr(str_plit[1]);
@@ -41,15 +41,12 @@ int add_line_info_to_struct(char *line, ssize_t nread, elt_t **array_list)
 
 int get_file_info(file_info_t *file_info_n)
 {
-    char *line = NULL;
-    size_t len = 0;
-    ssize_t nread = 0;
-    nread = getline(&line, &len, stdin);
-    file_info_n->nb_ant = my_get_nbr(line);
-    while (nread != -1) {
-        add_line_info_to_struct(line, nread, &(file_info_n->array_list));
-        nread = getline(&line, &len, stdin);
+    char **file = my_load_stdin_in_array();
+    file_info_n->nb_ant = my_get_nbr(file[0]);
+    for (int i = 1; file[i] != NULL; i += 1) {
+        add_line_info_to_struct(file[i], my_str_len(file[i]),
+        &(file_info_n->array_list));
     }
-    free(line);
+    free_map(file);
     return 0;
 }
