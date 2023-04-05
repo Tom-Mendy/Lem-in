@@ -53,17 +53,12 @@ static int if_error_close_fd(void *function, void *value, int *fd)
     return 0;
 }
 
-int my_load_stdin_in_memory_sub(int *nread, char *buffer, char **result_str,
-int *fd)
+int my_load_stdin_in_memory_sub(int *nread, char *buffer, char **result_str)
 {
-    if ((*nread) == -1) {
-        close((*fd));
+    if ((*nread) == -1)
         return 84;
-    }
-    if (add_str_to_end_str(result_str, buffer, (*nread)) == 84) {
-        close((*fd));
+    if (add_str_to_end_str(result_str, buffer, (*nread)) == 84)
         return 84;
-    }
     return 0;
 }
 
@@ -79,9 +74,8 @@ char *my_load_stdin_in_memory(void)
     int nread = 1;
     char buffer[100];
     while ((nread = read(fd, buffer, 100)) != 0) {
-        if (my_load_stdin_in_memory_sub(&nread, buffer, &result_str, &fd) == 84)
+        if (my_load_stdin_in_memory_sub(&nread, buffer, &result_str) == 84)
             return NULL;
     }
-    close(fd);
     return result_str;
 }
