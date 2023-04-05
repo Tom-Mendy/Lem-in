@@ -44,15 +44,6 @@ static int add_str_to_end_str(char **str_base, char *fragment, int nb_to_copy)
     return 0;
 }
 
-static int if_error_close_fd(void *function, void *value, int *fd)
-{
-    if (function == value) {
-        return 84;
-        close((*fd));
-    }
-    return 0;
-}
-
 int my_load_stdin_in_memory_sub(int *nread, char *buffer, char **result_str)
 {
     if ((*nread) == -1)
@@ -68,7 +59,7 @@ char *my_load_stdin_in_memory(void)
     if (fd == -1)
         return NULL;
     char *result_str = malloc(sizeof(char) * (1));
-    if (if_error_close_fd(result_str, NULL, &fd))
+    if (result_str == NULL)
         return NULL;
     result_str[0] = '\0';
     int nread = 1;
