@@ -44,7 +44,8 @@ static int add_str_to_end_str(char **str_base, char *fragment, int nb_to_copy)
     return 0;
 }
 
-int my_load_stdin_in_memory_sub(int *nread, char *buffer, char **result_str)
+static int my_load_stdin_in_memory_sub(int *nread, char *buffer,
+char **result_str)
 {
     if ((*nread) == -1)
         return 84;

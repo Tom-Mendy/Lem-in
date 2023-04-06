@@ -34,6 +34,6 @@
     char *my_load_stdin_in_memory(void);
     char **my_load_stdin_in_array(void);
     int clear_commente_in_file(char **file);
-    int add_line_info_to_struct(char *line, elt_t **array_list, int *);
+    int add_line_info_to_struct(char *line, elt_t **array_list);
     int is_start_end(char **file, file_info_t *array_list);
 #endif /* !LEM_IN_H_ */
