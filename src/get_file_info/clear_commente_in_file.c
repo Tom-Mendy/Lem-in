@@ -21,7 +21,7 @@ int clear_commente_in_file(char **file)
     if (file == NULL)
         return KO;
     for (int i = 1; file[i] != NULL; i += 1) {
-        int nb_hashtag = my_count_nb_char_in_str(file[i], '-');
+        int nb_hashtag = my_count_nb_char_in_str(file[i], '#');
         if ((nb_hashtag == 1 && file[i][0] == '#'))
             clear_commente_in_file_sub(file, i);
     }

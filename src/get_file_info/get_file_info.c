@@ -15,10 +15,9 @@ int get_nb_ant(file_info_t *file_info_n, char **file)
     return OK;
 }
 
-int get_file_info_sub(file_info_t *file_info_n, char **file, int *i)
+int get_file_info_sub(file_info_t *file_info_n, char **file, int i)
 {
-    if (add_line_info_to_struct(file[(*i)], &(file_info_n->array_list))
-    == KO)
+    if (add_line_info_to_struct(file[i], &(file_info_n->array_list)) == KO)
         return KO;
     return OK;
 }
@@ -36,7 +35,7 @@ int get_file_info(file_info_t *file_info_n)
     if (get_nb_ant(file_info_n, file) == KO)
         return KO;
     for (int i = 1; file[i] != NULL; i += 1) {
-        if (get_file_info_sub(file_info_n, file, &i) == KO)
+        if (get_file_info_sub(file_info_n, file, i) == KO)
             return KO;
     }
     free_map(file);

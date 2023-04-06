@@ -11,13 +11,13 @@ SRC			=	lem_in.c					\
 				display_all_link.c			\
 				print_cordinate_link.c		\
 				free_link_list_room.c		\
-				connect_two_link.c			\
-				get_file_info.c				\
-				my_load_stdin_in_array.c	\
-				my_load_stdin_in_memory.c	\
-				clear_commente_in_file.c	\
-				add_line_info_to_struct.c	\
-				is_start_end.c				\
+				get_file_info/connect_two_link.c			\
+				get_file_info/my_load_stdin_in_array.c	\
+				get_file_info/my_load_stdin_in_memory.c	\
+				get_file_info/clear_commente_in_file.c	\
+				get_file_info/add_line_info_to_struct.c	\
+				get_file_info/is_start_end.c				\
+				get_file_info/get_file_info.c				\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
