@@ -36,6 +36,9 @@ int is_start_end(char **file, file_info_t *file_info_n)
     int start = 0;
     int end = 0;
     for (int i = 1; file[i] != NULL; i += 1){
+        if ((my_str_cmp(file[i], "##start") == OK && start == 1) ||
+        (my_str_cmp(file[i], "##end") == OK && start == 1 && end == 1))
+            return KO;
         if (my_str_cmp(file[i], "##start") == OK)
             start = 1;
         if (get_nb_start(file, file_info_n, i) == KO)

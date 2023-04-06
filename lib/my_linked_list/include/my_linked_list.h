@@ -12,7 +12,7 @@
     #include "my_str.h"
     #include "my_int.h"
     typedef struct list_type{
-        int data;
+        int nb_room;
         int x;
         int y;
         struct list_type **sub_branches;

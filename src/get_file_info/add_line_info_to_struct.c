@@ -7,6 +7,11 @@
 
 #include "lem_in.h"
 
+int is_room_already_in_list(elt_t *array_list, int nb)
+{
+    return KO;
+}
+
 int point_with_cordinate(char *line, elt_t **array_list)
 {
     char **str_plit = spliter(line, " ");
