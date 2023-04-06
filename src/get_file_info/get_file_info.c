@@ -22,6 +22,15 @@ int get_file_info_sub(file_info_t *file_info_n, char **file, int i)
     return OK;
 }
 
+int is_element_in_list(elt_t *array_list, int start, int end)
+{
+    if (is_room_in_list(array_list, start, end) == KO)
+        return KO;
+    if (is_pipe_in_room_in_list(array_list) == KO)
+        return KO;
+    return OK;
+}
+
 int get_file_info(file_info_t *file_info_n)
 {
     char **file = my_load_stdin_in_array();
@@ -39,5 +48,8 @@ int get_file_info(file_info_t *file_info_n)
             return KO;
     }
     free_map(file);
+    if (is_element_in_list(file_info_n->array_list, file_info_n->nb_start_room,
+    file_info_n->nb_end_room) == KO)
+        return KO;
     return OK;
 }

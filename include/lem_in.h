@@ -36,4 +36,8 @@
     int clear_commente_in_file(char **file);
     int add_line_info_to_struct(char *line, elt_t **array_list);
     int is_start_end(char **file, file_info_t *array_list);
+    int is_pipe_in_room_in_list(elt_t *array_list);
+    int is_room_already_in_list(elt_t *array_list, int nb);
+    int is_room_coordinate_already_in_list(elt_t *array_list, int x, int y);
+    int is_room_in_list(elt_t *array_list, int start, int end);
 #endif /* !LEM_IN_H_ */
