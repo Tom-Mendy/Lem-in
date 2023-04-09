@@ -10,8 +10,10 @@ SRC			=	lem_in.c												\
 				my_count_nb_char_in_str.c								\
 				display_all_link.c										\
 				print_cordinate_link.c									\
+				my_map_len.c											\
 				free_link_list_room.c									\
 				get_file_info/connect_two_link.c						\
+				get_file_info/check_good_formating_line.c				\
 				get_file_info/my_load_stdin_in_array.c					\
 				get_file_info/my_load_stdin_in_memory.c					\
 				get_file_info/clear_commente_in_file.c					\

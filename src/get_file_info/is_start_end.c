@@ -7,26 +7,18 @@
 
 #include "lem_in.h"
 
-static int get_nb_start(char **file, file_info_t *file_info_n, int i)
+static int get_nb_start_end(char **file,file_info_t *file_info_n, int const i,
+char const * const str)
 {
-    if (my_str_cmp(file[i - 1], "##start") == OK){
+    if (my_str_cmp(file[i - 1], str) == OK){
         int nb_space = my_count_nb_char_in_str(file[i], ' ');
         if (nb_space != 2)
             return KO;
         char **line_split = spliter(file[i], " ");
-        file_info_n->nb_start_room = my_get_nbr(line_split[0]);
-    }
-    return OK;
-}
-
-static int get_nb_end(char **file,file_info_t *file_info_n, int i)
-{
-    if (my_str_cmp(file[i - 1], "##end") == OK){
-        int nb_space = my_count_nb_char_in_str(file[i], ' ');
-        if (nb_space != 2)
+        if (check_good_formating_line(line_split, 3) == KO)
             return KO;
-        char **line_split = spliter(file[i], " ");
         file_info_n->nb_end_room = my_get_nbr(line_split[0]);
+        free_map(line_split);
     }
     return OK;
 }
@@ -41,14 +33,16 @@ int is_start_end(char **file, file_info_t *file_info_n)
             return KO;
         if (my_str_cmp(file[i], "##start") == OK)
             start = 1;
-        if (get_nb_start(file, file_info_n, i) == KO)
+        if (get_nb_start_end(file, file_info_n, i, "##start") == KO)
             return KO;
         if (my_str_cmp(file[i], "##end") == OK && start == 1)
             end = 1;
-        if (get_nb_end(file, file_info_n, i) == KO)
+        if (get_nb_start_end(file, file_info_n, i, "##end") == KO)
             return KO;
     }
-    if (start == 0 || end == 0)
+    if (start == 0 || end == 0){
+        free_map(file);
         return KO;
+    }
     return OK;
 }

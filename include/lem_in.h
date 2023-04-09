@@ -40,4 +40,6 @@
     int is_room_already_in_list(elt_t *array_list, int nb);
     int is_room_coordinate_already_in_list(elt_t *array_list, int x, int y);
     int is_room_in_list(elt_t *array_list, int start, int end);
+    int my_map_len(char **map);
+    int check_good_formating_line(char **str_plit, int nb_value);
 #endif /* !LEM_IN_H_ */
