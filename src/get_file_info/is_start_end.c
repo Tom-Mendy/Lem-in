@@ -17,7 +17,10 @@ char const * const str)
         char **line_split = spliter(file[i], " ");
         if (check_good_formating_line(line_split, 3) == KO)
             return KO;
-        file_info_n->nb_end_room = my_get_nbr(line_split[0]);
+        if (my_str_cmp(str, "##end") == 0)
+            file_info_n->nb_end_room = my_get_nbr(line_split[0]);
+        if (my_str_cmp(str, "##start") == 0)
+            file_info_n->nb_start_room = my_get_nbr(line_split[0]);
         free_map(line_split);
     }
     return OK;
