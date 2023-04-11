@@ -28,6 +28,7 @@
     }list_room_t;
     typedef struct list_road_s{
         list_room_t *data;
+        int len_road;
         struct list_road_s *next;
         struct list_road_s *prev;
     }list_road_t;
@@ -60,4 +61,6 @@
     char *generate_malloc_str_from_str(char const *const str);
     list_type_t *get_room_in_list_from_nb_room(char *name_room,\
     elt_t *array_list);
+    int get_len_of_road(list_room_t *road);
+
 #endif /* !LEM_IN_H_ */
