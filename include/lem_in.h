@@ -17,15 +17,19 @@
     #include "spliter.h"
     typedef struct file_info_s{
         int nb_ant;
-        int nb_start_room;
-        int nb_end_room;
+        int name_start_room;
+        int name_end_room;
         elt_t *array_list;
     }file_info_t;
+    typedef struct list_room_s{
+        int name_room;
+        struct list_room_s *next;
+        struct list_room_s *prev;
+    }list_room_t;
     typedef struct list_road_s{
-        int connected_rooms;
-        int len_road;
-        struct list_road_s *next_sub_list;
-        struct list_road_s **next;
+        list_room_t *data;
+        struct list_road_s *next;
+        struct list_road_s *prev;
     }list_road_t;
     #define OK 0
     #define KO 84
@@ -50,6 +54,7 @@
     int check_good_formating_line(char **str_plit, int nb_value);
     list_road_t *list_all_road(file_info_t *file_info);
     int get_index_from_nb_room(int nb_room, elt_t *array_list);
-
+    int put_end_list_road(list_road_t **list, list_room_t *value);
+    int put_end_list_room(list_room_t **list, int name_room);
 
 #endif /* !LEM_IN_H_ */

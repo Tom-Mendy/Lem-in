@@ -12,6 +12,7 @@ SRC			=	lem_in.c												\
 				print_cordinate_link.c									\
 				my_map_len.c											\
 				free_link_list_room.c									\
+				get_index_from_nb_room.c								\
 				get_file_info/connect_two_link.c						\
 				get_file_info/check_good_formating_line.c				\
 				get_file_info/my_load_stdin_in_array.c					\
@@ -24,8 +25,10 @@ SRC			=	lem_in.c												\
 				get_file_info/is_room_in_list.c							\
 				get_file_info/is_room_coordinate_already_in_list.c		\
 				get_file_info/is_room_already_in_list.c					\
+				list_all_roads/put_end_list_road.c						\
+				list_all_roads/put_end_list_room.c						\
 				list_all_roads/list_all_road.c							\
-				
+
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
 MAIN_SRC	=	src/main.c

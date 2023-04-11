@@ -52,8 +52,8 @@ int get_file_info(file_info_t *file_info_n)
             return KO;
     }
     free_map(file);
-    if (is_element_in_list(file_info_n->array_list, file_info_n->nb_start_room,
-    file_info_n->nb_end_room) == KO)
+    if (is_element_in_list(file_info_n->array_list,
+    file_info_n->name_start_room, file_info_n->name_end_room) == KO)
         return KO;
     return OK;
 }
