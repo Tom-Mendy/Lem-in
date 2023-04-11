@@ -33,7 +33,6 @@ list_road_t *list_all_road(file_info_t *file_info)
     list_room_t *possible_road = NULL;
     list_type_t *tmp = get_all_path(file_info, possible_road, &possible_paths,
     start_room->name_room);
-
     printf("%s  %s\n", start_room->name_room, end_room->name_room);
     return possible_paths;
 }
