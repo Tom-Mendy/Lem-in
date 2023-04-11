@@ -39,7 +39,6 @@ int link_between_room(char *line, elt_t **array_list)
     int second_nb = my_get_nbr(str_plit[1]);
     free_map(str_plit);
     if (connect_two_link((*array_list), first_nb, second_nb) == KO){
-        free(array_list);
         return KO;
     }
     return OK;
