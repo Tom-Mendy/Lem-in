@@ -26,7 +26,7 @@ int get_file_info_sub(file_info_t *file_info_n, char **file, int i)
     return OK;
 }
 
-int is_element_in_list(elt_t *array_list, int start, int end)
+int is_element_in_list(elt_t *array_list, char *start, char *end)
 {
     if (is_room_in_list(array_list, start, end) == KO)
         return KO;

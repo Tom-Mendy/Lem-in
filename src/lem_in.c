@@ -25,8 +25,8 @@ int lem_in(void)
         free_link_list_room(file_info_n.array_list);
         return KO;
     }
-    list_road_t *paths = list_all_road(&file_info_n);
-    print_paths(paths);
+    // list_road_t *paths = list_all_road(&file_info_n);
+    // print_paths(paths);
     display_all_link(file_info_n.array_list);
     free_link_list_room(file_info_n.array_list);
     return 0;

@@ -15,12 +15,12 @@ char const * const str)
         if (nb_space != 2)
             return KO;
         char **line_split = spliter(file[i], " ");
-        if (check_good_formating_line(line_split, 3) == KO)
+        if (check_good_formating_room_line(line_split, 3) == KO)
             return KO;
         if (my_str_cmp(str, "##end") == 0)
-            file_info_n->name_end_room = my_get_nbr(line_split[0]);
+            file_info_n->name_end_room = line_split[0];
         if (my_str_cmp(str, "##start") == 0)
-            file_info_n->name_start_room = my_get_nbr(line_split[0]);
+            file_info_n->name_start_room = line_split[0];
         free_map(line_split);
     }
     return OK;

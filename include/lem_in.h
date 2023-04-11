@@ -17,12 +17,12 @@
     #include "spliter.h"
     typedef struct file_info_s{
         int nb_ant;
-        int name_start_room;
-        int name_end_room;
+        char * name_start_room;
+        char *name_end_room;
         elt_t *array_list;
     }file_info_t;
     typedef struct list_room_s{
-        int name_room;
+        char * name_room;
         struct list_room_s *next;
         struct list_room_s *prev;
     }list_room_t;
@@ -39,7 +39,8 @@
     int my_count_nb_char_in_str(char *str, char spe_char);
     void print_cordinate_link(list_type_t *link);
     void free_link_list_room(elt_t *array_list);
-    int connect_two_link(elt_t *array_list, int first_nb, int second_nb);
+    int connect_two_link(elt_t *array_list, char * first_name,
+    char * second_name);
     int get_file_info(file_info_t *file_info_n);
     char *my_load_stdin_in_memory(void);
     char **my_load_stdin_in_array(void);
@@ -47,14 +48,16 @@
     int add_line_info_to_struct(char *line, elt_t **array_list);
     int is_start_end(char **file, file_info_t *array_list);
     int is_pipe_in_room_in_list(elt_t *array_list);
-    int is_room_already_in_list(elt_t *array_list, int nb);
+    int is_room_already_in_list(elt_t *array_list, char * name_room);
     int is_room_coordinate_already_in_list(elt_t *array_list, int x, int y);
-    int is_room_in_list(elt_t *array_list, int start, int end);
+    int is_room_in_list(elt_t *array_list, char *start, char *end);
     int my_map_len(char **map);
-    int check_good_formating_line(char **str_plit, int nb_value);
+    int check_good_formating_room_line(char **str_plit, int nb_value);
     list_road_t *list_all_road(file_info_t *file_info);
-    int get_index_from_nb_room(int nb_room, elt_t *array_list);
+    int get_index_from_nb_room(char * name_room, elt_t *array_list);
     int put_end_list_road(list_road_t **list, list_room_t *value);
-    int put_end_list_room(list_room_t **list, int name_room);
-
+    int put_end_list_room(list_room_t **list, char * name_room);
+    char *generate_malloc_str_from_str(char const *const str);
+    list_type_t *get_room_in_list_from_nb_room(char *name_room,\
+    elt_t *array_list);
 #endif /* !LEM_IN_H_ */

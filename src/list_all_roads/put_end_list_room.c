@@ -7,7 +7,7 @@
 
 #include "lem_in.h"
 
-int put_end_list_room(list_room_t **list, int name_room)
+int put_end_list_room(list_room_t **list, char *name_room)
 {
     list_room_t *node = *list;
     if (node != NULL) {

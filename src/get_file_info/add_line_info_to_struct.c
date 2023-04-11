@@ -10,19 +10,21 @@
 int point_with_cordinate(char *line, elt_t **array_list)
 {
     char **str_plit = spliter(line, " ");
-    if (check_good_formating_line(str_plit, 3) == KO){
+    if (check_good_formating_room_line(str_plit, 3) == KO){
         free_link_list_room(*array_list);
         return KO;
     }
-    int nb_room = my_get_nbr(str_plit[0]);
+    char *name_room = generate_malloc_str_from_str(str_plit[0]);
     int x = my_get_nbr(str_plit[1]);
     int y = my_get_nbr(str_plit[2]);
     free_map(str_plit);
-    if (is_room_already_in_list(*array_list, nb_room) == 84)
+    if (is_room_already_in_list(*array_list, name_room) == 84){
+        free(name_room);
         return KO;
+    }
     if (is_room_coordinate_already_in_list(*array_list, x, y) == 84)
         return KO;
-    list_type_t *tmp = create_link(nb_room, x, y);
+    list_type_t *tmp = create_link(name_room, x, y);
     if (put_end_list(array_list, tmp) == KO)
         return KO;
     return OK;
@@ -31,16 +33,17 @@ int point_with_cordinate(char *line, elt_t **array_list)
 int link_between_room(char *line, elt_t **array_list)
 {
     char **str_plit = spliter(line, "-");
-    if (check_good_formating_line(str_plit, 2) == KO){
-        free_link_list_room(*array_list);
+    // if (check_good_formating_line(str_plit, 2) == KO){
+        // free_link_list_room(*array_list);
+        // return KO;
+    // }
+    char *first_name = str_plit[0];
+    char *second_name = str_plit[1];
+    if (connect_two_link((*array_list), first_name, second_name) == KO){
+        free_map(str_plit);
         return KO;
     }
-    int first_nb = my_get_nbr(str_plit[0]);
-    int second_nb = my_get_nbr(str_plit[1]);
     free_map(str_plit);
-    if (connect_two_link((*array_list), first_nb, second_nb) == KO){
-        return KO;
-    }
     return OK;
 }
 

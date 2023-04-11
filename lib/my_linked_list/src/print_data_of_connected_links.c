@@ -13,7 +13,7 @@ static void print_data_of_connected_links_sub(list_type_t *link)
 {
     if (link->sub_branches != NULL) {
         for (int i = 0; link->sub_branches[i] != NULL; i += 1) {
-            my_put_nbr(link->sub_branches[i]->nb_room);
+            my_put_str(link->sub_branches[i]->name_room);
         }
     }
 }

@@ -11,7 +11,7 @@
 void print_link(list_type_t *link)
 {
     if (link != NULL){
-        my_put_nbr(link->nb_room);
+        my_put_str(link->name_room);
         write(1, "\n", 1);
     }
 }

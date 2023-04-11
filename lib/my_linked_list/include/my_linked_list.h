@@ -12,7 +12,7 @@
     #include "my_str.h"
     #include "my_int.h"
     typedef struct list_type{
-        int nb_room;
+        char * name_room;
         int x;
         int y;
         struct list_type **sub_branches;
@@ -26,7 +26,7 @@
     int put_end_list(elt_t **list, list_type_t *value);
     void delete_first_element_list(elt_t **list);
     void delete_actual_node_list(elt_t *list);
-    list_type_t *create_link(int const data, int const x, int const y);
+    list_type_t *create_link(char * data, int const x, int const y);
     void print_link(list_type_t *link);
     int connect_links(list_type_t *link1, list_type_t *link2);
     void print_data_of_connected_links(list_type_t *link);
