@@ -58,10 +58,10 @@ static void print_list(list_road_t *list_roads)
 {
     list_road_t *tmp = list_roads;
     while (list_roads != NULL) {
-        printf("%d ", list_roads->len_road);
+        my_printf("%d ", list_roads->len_road);
         list_roads = list_roads->next;
     }
-    printf("\n");
+    my_printf("\n");
     free(tmp);
 }
 
@@ -71,10 +71,10 @@ list_road_t *sort_roads(list_road_t *list_roads)
     for (; tmp_road != NULL; tmp_road = tmp_road->next) {
         tmp_road->len_road = get_len_of_road(tmp_road->data);
     }
-    printf("Original list:\n");
+    my_printf("Original list:\n");
     print_list(list_roads);
     merge_sort(list_roads);
-    printf("Sorted list:\n");
+    my_printf("Sorted list:\n");
     print_list(list_roads);
     return list_roads;
 }
