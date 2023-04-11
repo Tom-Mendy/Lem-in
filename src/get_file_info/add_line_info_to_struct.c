@@ -33,17 +33,16 @@ int point_with_cordinate(char *line, elt_t **array_list)
 int link_between_room(char *line, elt_t **array_list)
 {
     char **str_plit = spliter(line, "-");
-    // if (check_good_formating_line(str_plit, 2) == KO){
-        // free_link_list_room(*array_list);
-        // return KO;
-    // }
-    char *first_name = str_plit[0];
-    char *second_name = str_plit[1];
-    if (connect_two_link((*array_list), first_name, second_name) == KO){
+    if (my_map_len(str_plit) != 2){
+        free_link_list_room(*array_list);
         free_map(str_plit);
         return KO;
     }
+    char *first_name = generate_malloc_str_from_str(str_plit[0]);
+    char *second_name = generate_malloc_str_from_str(str_plit[1]);
     free_map(str_plit);
+    if (connect_two_link((*array_list), first_name, second_name) == KO)
+        return KO;
     return OK;
 }
 
