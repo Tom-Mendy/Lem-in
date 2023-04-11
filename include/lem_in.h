@@ -21,6 +21,12 @@
         int nb_end_room;
         elt_t *array_list;
     }file_info_t;
+    typedef struct list_road_s{
+        int connected_rooms;
+        int len_road;
+        struct list_road_s *next_sub_list;
+        struct list_road_s **next;
+    }list_road_t;
     #define OK 0
     #define KO 84
     int lem_in(void);
@@ -42,4 +48,8 @@
     int is_room_in_list(elt_t *array_list, int start, int end);
     int my_map_len(char **map);
     int check_good_formating_line(char **str_plit, int nb_value);
+    list_road_t *list_all_road(file_info_t *file_info);
+    int get_index_from_nb_room(int nb_room, elt_t *array_list);
+
+
 #endif /* !LEM_IN_H_ */

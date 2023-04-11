@@ -24,7 +24,8 @@ SRC			=	lem_in.c												\
 				get_file_info/is_room_in_list.c							\
 				get_file_info/is_room_coordinate_already_in_list.c		\
 				get_file_info/is_room_already_in_list.c					\
-
+				list_all_roads/list_all_road.c							\
+				
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
 MAIN_SRC	=	src/main.c
