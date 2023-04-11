@@ -10,10 +10,9 @@
 int print_paths(list_road_t *paths)
 {
     if (paths == NULL){
-        my_printf("No paths found\n");
+        my_put_str("No paths found\n");
         return OK;
     }
-
     return OK;
 }
 

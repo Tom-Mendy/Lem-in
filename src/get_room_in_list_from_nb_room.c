@@ -14,8 +14,10 @@ list_type_t *get_room_in_list_from_nb_room(char *name_room, elt_t *array_list)
         return NULL;
     elt_t *tmp = array_list;
     for (; tmp != NULL; index_room += 1){
-        if (my_str_cmp(tmp->data->name_room, name_room) == 0)
-            return tmp->data;
+        if (tmp->data != NULL){
+            if (my_str_cmp(tmp->data->name_room, name_room) == 0)
+                return tmp->data;
+        }
         tmp = tmp->next;
     }
     return NULL;

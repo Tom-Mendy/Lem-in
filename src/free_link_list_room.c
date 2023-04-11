@@ -13,6 +13,7 @@ void free_link_list_room(elt_t *array_list)
         elt_t *tmp = array_list;
         if (array_list->data->sub_branches != NULL)
             free(array_list->data->sub_branches);
+        free(array_list->data->name_room);
         free(array_list->data);
         array_list = array_list->next;
         free(tmp);

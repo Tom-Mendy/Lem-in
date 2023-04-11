@@ -41,8 +41,13 @@ int link_between_room(char *line, elt_t **array_list)
     char *first_name = generate_malloc_str_from_str(str_plit[0]);
     char *second_name = generate_malloc_str_from_str(str_plit[1]);
     free_map(str_plit);
-    if (connect_two_link((*array_list), first_name, second_name) == KO)
+    if (connect_two_link((*array_list), first_name, second_name) == KO){
+        free(first_name);
+        free(second_name);
         return KO;
+    }
+    free(first_name);
+    free(second_name);
     return OK;
 }
 
