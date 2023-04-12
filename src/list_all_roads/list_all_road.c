@@ -7,26 +7,6 @@
 
 #include "lem_in.h"
 
-list_room_t *get_end_node(list_room_t *possible_road)
-{
-    list_room_t *tmp = possible_road;
-    for (;tmp->next != NULL;){
-        tmp = tmp ->next;
-    }
-    return tmp;
-}
-
-int free_end_list(list_room_t **possible_road)
-{
-    list_room_t *end_node = get_end_node(*possible_road);
-    list_room_t *end_node_prev = end_node->prev;
-    if (end_node_prev != NULL)
-        end_node_prev->next = NULL;
-    free(end_node->name_room);
-    free(end_node);
-    return 0;
-}
-
 list_room_t *copy_list_room(list_room_t *possible_road)
 {
     list_room_t *result = NULL;
@@ -39,19 +19,27 @@ list_room_t *copy_list_room(list_room_t *possible_road)
     return result;
 }
 
+int is_a_good_road(file_info_t *file_info, list_room_t *possible_road,
+list_road_t **possible_paths, char *name_actual_room)
+{
+    if (my_str_cmp(name_actual_room, file_info->name_end_room) == OK){
+        list_room_t *tmp_road = copy_list_room(possible_road);
+        put_end_list_road(possible_paths, tmp_road);
+        free_end_list_room(&possible_road);
+        return 1;
+    }
+    return OK;
+}
+
 list_type_t *get_all_path(file_info_t *file_info, list_room_t *possible_road,
 list_road_t **possible_paths, char *name_actual_room)
 {
     put_end_list_room(&possible_road, name_actual_room);
     list_type_t *actual_room_state = get_room_in_list_from_nb_room(
     name_actual_room, file_info->array_list);
-    if (my_str_cmp(name_actual_room, file_info->name_end_room) == OK){
-        my_put_str("oooooooooooooooooooo\n");
-        list_room_t *tmp_road = copy_list_room(possible_road);
-        put_end_list_road(possible_paths, tmp_road);
-        free_end_list(&possible_road);
+    if (is_a_good_road(file_info, possible_road, possible_paths,
+    name_actual_room) == 1)
         return NULL;
-    }
     for (int i = 0; actual_room_state->sub_branches[i] != NULL; i += 1){
         int tmp = get_index_from_nb_room(actual_room_state->sub_branches[i]\
         ->name_room, possible_road);
@@ -62,7 +50,7 @@ list_road_t **possible_paths, char *name_actual_room)
             new_name_room);
         }
     }
-    free_end_list(&possible_road);
+    free_end_list_room(&possible_road);
     return NULL;
 }
 
