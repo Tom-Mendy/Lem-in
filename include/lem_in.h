@@ -55,10 +55,10 @@
     int my_map_len(char **map);
     int check_good_formating_room_line(char **str_plit, int nb_value);
     list_road_t *list_all_road(file_info_t *file_info);
-    int get_index_from_nb_room(char * name_room, elt_t *array_list);
     int put_end_list_road(list_road_t **list, list_room_t *value);
     int put_end_list_room(list_room_t **list, char * name_room);
     char *generate_malloc_str_from_str(char const *const str);
+    int get_index_from_nb_room(char * name_room, list_room_t *possible_road);
     list_type_t *get_room_in_list_from_nb_room(char *name_room,\
     elt_t *array_list);
     int get_len_of_road(list_room_t *road);

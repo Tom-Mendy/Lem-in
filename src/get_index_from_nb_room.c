@@ -7,14 +7,14 @@
 
 #include "lem_in.h"
 
-int get_index_from_nb_room(char * name_room, elt_t *array_list)
+int get_index_from_nb_room(char * name_room, list_room_t *possible_road)
 {
     int index_room = 0;
-    if (array_list == NULL)
+    if (possible_road == NULL)
         return -1;
-    elt_t *tmp = array_list;
+    list_room_t *tmp = possible_road;
     for (; tmp != NULL; index_room += 1){
-        if (tmp->data->name_room == name_room)
+        if (my_str_cmp(tmp->name_room, name_room) == OK)
             return index_room;
         tmp = tmp->next;
     }

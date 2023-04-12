@@ -18,15 +18,16 @@ static void clear_commente_in_line(char *str)
     }
 }
 
-static void clear_commente_in_file_sub(char **file, int const i)
+static void clear_commente_in_file_sub(char **file, int *i)
 {
-    if (file[i][0] == '#'){
-        free(file[i]);
-        for (int j = i; file[j] != NULL; j += 1) {
+    if (file[(*i)][0] == '#'){
+        free(file[(*i)]);
+        for (int j = (*i); file[j] != NULL; j += 1) {
             file[j] = file[j + 1];
         }
+        (*i) -= 1;
     } else
-        clear_commente_in_line(file[i]);
+        clear_commente_in_line(file[(*i)]);
 }
 
 int clear_commente_in_file(char **file)
@@ -36,7 +37,7 @@ int clear_commente_in_file(char **file)
     for (int i = 0; file[i] != NULL; i += 1) {
         int nb_hashtag = my_count_nb_char_in_str(file[i], '#');
         if (nb_hashtag == 1)
-            clear_commente_in_file_sub(file, i);
+            clear_commente_in_file_sub(file, &i);
     }
     return OK;
 }
