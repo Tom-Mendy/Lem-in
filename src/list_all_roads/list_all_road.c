@@ -65,9 +65,5 @@ list_road_t *list_all_road(file_info_t *file_info)
     char *start_room_str = generate_malloc_str_from_str(start_room->name_room);
     list_type_t *tmp = get_all_path(file_info, possible_road, &possible_paths,
     start_room_str);
-    my_put_str(start_room->name_room);
-    my_put_char('\n');
-    my_put_str(end_room->name_room);
-    my_put_char('\n');
     return possible_paths;
 }

@@ -64,7 +64,6 @@ static void merge_sort(list_road_t **list_roads)
     *list_roads = merge_lists(left, right);
 }
 
-
 void sort_roads(list_road_t *list_roads)
 {
     list_road_t *tmp_road = list_roads;

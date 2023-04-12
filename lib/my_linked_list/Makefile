@@ -13,7 +13,7 @@ SRC			=	delete_actual_node_list.c				\
 				create_link.c							\
 				print_data_of_connected_links.c			\
 				print_link.c							\
-				print_my_graph_data.c					\
+				print_my_graph_data.c
 
 EXT			=	../my_str/src/my_put_str.c				\
 				../my_str/src/my_put_char.c				\
