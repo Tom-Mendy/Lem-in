@@ -37,21 +37,20 @@ int is_element_in_list(elt_t *array_list, char *start, char *end)
 
 int get_file_info(file_info_t *file_info_n)
 {
-    char **file = my_load_stdin_in_array();
-    if (file == NULL)
+    file_info_n->file = my_load_stdin_in_array();
+    if (file_info_n->file == NULL)
         return KO;
-    if (*file == NULL)
+    if (*file_info_n->file == NULL)
         return KO;
-    clear_commente_in_file(file);
-    if (is_start_end(file, file_info_n) == KO)
+    clear_commente_in_file(file_info_n->file);
+    if (is_start_end(file_info_n->file, file_info_n) == KO)
         return KO;
-    if (get_nb_ant(file_info_n, file) == KO)
+    if (get_nb_ant(file_info_n, file_info_n->file) == KO)
         return KO;
-    for (int i = 1; file[i] != NULL; i += 1) {
-        if (get_file_info_sub(file_info_n, file, i) == KO)
+    for (int i = 1; file_info_n->file[i] != NULL; i += 1) {
+        if (get_file_info_sub(file_info_n, file_info_n->file, i) == KO)
             return KO;
     }
-    free_map(file);
     if (is_element_in_list(file_info_n->array_list,
     file_info_n->name_start_room, file_info_n->name_end_room) == KO)
         return KO;

@@ -20,6 +20,7 @@
         char * name_start_room;
         char *name_end_room;
         elt_t *array_list;
+        char **file;
     }file_info_t;
     typedef struct list_room_s{
         char * name_room;
