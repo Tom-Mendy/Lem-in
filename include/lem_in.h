@@ -66,4 +66,7 @@
     void display_list_possible_road(list_room_t *possible_road);
     int free_end_list_room(list_room_t **possible_road);
     int free_paths(list_road_t *paths);
+    void sort_roads(list_road_t *list_roads);
+    void print_list(list_road_t *list_roads);
+
 #endif /* !LEM_IN_H_ */

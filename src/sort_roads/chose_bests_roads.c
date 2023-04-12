@@ -11,10 +11,9 @@ int get_len_of_road(list_room_t *road)
 {
     int len = 0;
     list_room_t *tmp = road;
-    for (; tmp != NULL; tmp = tmp->next) {
+    for (; tmp->next != NULL; tmp = tmp->next) {
         len++;
     }
-    free(tmp);
     return len;
 }
 
