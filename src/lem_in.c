@@ -13,6 +13,12 @@ int print_paths(list_road_t *paths)
         my_put_str("No paths found\n");
         return OK;
     }
+    list_road_t *tmp = paths;
+    while (tmp != NULL){
+        display_list_possible_road(tmp->data);
+        tmp = tmp->next;
+        my_put_str("rrrrrrrrrrrrrrrrrrrrrr\n");
+    }
     return OK;
 }
 

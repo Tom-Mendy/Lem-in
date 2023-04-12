@@ -7,16 +7,6 @@
 
 #include "lem_in.h"
 
-void display_list_possible_road(list_room_t *possible_road)
-{
-    list_room_t *tmp = possible_road;
-    for (int i = 0; tmp != NULL; i += 1){
-        my_put_str(tmp->name_room);
-        my_put_char('\n');
-        tmp = tmp->next;
-    }
-}
-
 list_room_t *get_end_node(list_room_t *possible_road)
 {
     list_room_t *tmp = possible_road;
@@ -37,14 +27,28 @@ int free_end_list(list_room_t **possible_road)
     return 0;
 }
 
+list_room_t *copy_list_room(list_room_t *possible_road)
+{
+    list_room_t *result = NULL;
+    list_room_t *tmp = possible_road;
+    while (tmp != NULL){
+        char *tmp_name_room = generate_malloc_str_from_str(tmp->name_room);
+        put_end_list_room(&result, tmp_name_room);
+        tmp = tmp->next;
+    }
+    return result;
+}
+
 list_type_t *get_all_path(file_info_t *file_info, list_room_t *possible_road,
 list_road_t **possible_paths, char *name_actual_room)
 {
     put_end_list_room(&possible_road, name_actual_room);
-    display_list_possible_road(possible_road);
     list_type_t *actual_room_state = get_room_in_list_from_nb_room(
     name_actual_room, file_info->array_list);
     if (my_str_cmp(name_actual_room, file_info->name_end_room) == OK){
+        my_put_str("oooooooooooooooooooo\n");
+        list_room_t *tmp_road = copy_list_room(possible_road);
+        put_end_list_road(possible_paths, tmp_road);
         free_end_list(&possible_road);
         return NULL;
     }

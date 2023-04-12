@@ -62,5 +62,5 @@
     list_type_t *get_room_in_list_from_nb_room(char *name_room,\
     elt_t *array_list);
     int get_len_of_road(list_room_t *road);
-
+    void display_list_possible_road(list_room_t *possible_road);
 #endif /* !LEM_IN_H_ */
