@@ -7,9 +7,20 @@
 
 #include "lem_in.h"
 
+void display_list_possible_road(list_room_t *possible_road)
+{
+    list_room_t *tmp = possible_road;
+    for (int i = 0; tmp != NULL; i += 1){
+        my_put_str(tmp->name_room);
+        my_put_char('\n');
+        tmp = tmp->next;
+    }
+}
+
 list_type_t *get_all_path(file_info_t *file_info, list_room_t *possible_road,
 list_road_t **possible_paths, char *name_actual_room)
 {
+    display_list_possible_road(possible_road);
     put_end_list_room(&possible_road, name_actual_room);
     list_type_t *actual_room_state = get_room_in_list_from_nb_room(
     possible_road->name_room, file_info->array_list);
@@ -34,6 +45,8 @@ list_road_t *list_all_road(file_info_t *file_info)
     list_type_t *tmp = get_all_path(file_info, possible_road, &possible_paths,
     start_room->name_room);
     my_put_str(start_room->name_room);
+    my_put_char('\n');
     my_put_str(end_room->name_room);
+    my_put_char('\n');
     return possible_paths;
 }

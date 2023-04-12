@@ -21,7 +21,10 @@ char const * const str)
             file_info_n->name_end_room = line_split[0];
         if (my_str_cmp(str, "##start") == 0)
             file_info_n->name_start_room = line_split[0];
-        free_map(line_split);
+        for (int i = 1; line_split[i] != NULL; i += 1){
+            free(line_split[i]);
+        }
+        free(line_split);
     }
     return OK;
 }
