@@ -14,6 +14,7 @@ SRC			=	lem_in.c												\
 				free_link_list_room.c									\
 				get_index_from_nb_room.c								\
 				get_room_in_list_from_nb_room.c							\
+				free_paths.c											\
 				get_file_info/generate_malloc_str_from_str.c			\
 				get_file_info/connect_two_link.c						\
 				get_file_info/check_good_formating_line.c				\
