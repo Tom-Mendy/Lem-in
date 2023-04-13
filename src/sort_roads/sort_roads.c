@@ -70,9 +70,5 @@ void sort_roads(list_road_t *list_roads)
     for (; tmp_road != NULL; tmp_road = tmp_road->next) {
         tmp_road->len_road = get_len_of_road(tmp_road->data);
     }
-    my_put_str("Original list:\n");
-    print_list(list_roads);
     merge_sort(&list_roads);
-    my_put_str("Sorted list:\n");
-    print_list(list_roads);
 }

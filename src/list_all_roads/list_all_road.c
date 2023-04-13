@@ -59,11 +59,9 @@ list_road_t *list_all_road(file_info_t *file_info)
     list_road_t *possible_paths = NULL;
     list_type_t *start_room = get_room_in_list_from_nb_room(
     file_info->name_start_room, file_info->array_list);
-    list_type_t *end_room = get_room_in_list_from_nb_room(
-    file_info->name_end_room, file_info->array_list);
     list_room_t *possible_road = NULL;
     char *start_room_str = generate_malloc_str_from_str(start_room->name_room);
-    list_type_t *tmp = get_all_path(file_info, possible_road, &possible_paths,
+    get_all_path(file_info, possible_road, &possible_paths,
     start_room_str);
     return possible_paths;
 }

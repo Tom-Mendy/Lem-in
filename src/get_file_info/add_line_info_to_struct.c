@@ -30,39 +30,6 @@ int point_with_cordinate(char *line, elt_t **array_list)
     return OK;
 }
 
-int is_two_the_same_room(char *first_name, char *second_name)
-{
-    if (my_str_cmp(first_name, second_name) == OK){
-        free(first_name);
-        free(second_name);
-        return KO;
-    }
-    return OK;
-}
-
-int link_between_room(char *line, elt_t **array_list)
-{
-    char **str_plit = spliter(line, "-");
-    if (my_map_len(str_plit) != 2){
-        free_link_list_room(*array_list);
-        free_map(str_plit);
-        return KO;
-    }
-    char *first_name = generate_malloc_str_from_str(str_plit[0]);
-    char *second_name = generate_malloc_str_from_str(str_plit[1]);
-    free_map(str_plit);
-    if (is_two_the_same_room(first_name, second_name) == KO)
-        return KO;
-    if (connect_two_link((*array_list), first_name, second_name) == KO){
-        free(first_name);
-        free(second_name);
-        return KO;
-    }
-    free(first_name);
-    free(second_name);
-    return OK;
-}
-
 int add_line_info_to_struct(char *line, elt_t **array_list)
 {
     int nb_space = my_count_nb_char_in_str(line, ' ');
