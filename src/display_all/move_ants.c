@@ -29,7 +29,7 @@ int display_line(bool *check_display_line, int j, move_ants_t *move_ant)
         if (name_room_before != NULL)
             my_put_char(' ');
         my_put_char('P');
-        my_put_nbr(j + 1);
+        my_put_nbr(move_ant->roads[j]);
         my_put_char('-');
         my_put_str(move_ant->name_room);
         (*check_display_line) = true;
@@ -43,7 +43,7 @@ bool *check_display_line, file_info_t file_info_n)
     for (int j = 0; j != paths->len_road; j += 1) {
         if (roads[j] > 0 && roads[j] <= file_info_n.nb_ant) {
             char * name_room = get_name_from_index_room_list(paths->data,
-            roads[j]);
+            j + 1);
             move_ants_t move_ant = {.name_room = name_room, .paths = paths,
             .roads = roads};
             display_line(check_display_line, j, &move_ant);
