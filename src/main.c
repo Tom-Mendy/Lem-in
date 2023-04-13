@@ -7,7 +7,9 @@
 
 #include "lem_in.h"
 
-int main(void)
+int main(int argc, char const* const* argv)
 {
+    if (argc != 1 || argv[0] == NULL)
+        return KO;
     return lem_in();
 }
