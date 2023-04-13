@@ -64,11 +64,12 @@ static void merge_sort(list_road_t **list_roads)
     *list_roads = merge_lists(left, right);
 }
 
-void sort_roads(list_road_t *list_roads)
+list_road_t *sort_roads(list_road_t *list_roads)
 {
     list_road_t *tmp_road = list_roads;
     for (; tmp_road != NULL; tmp_road = tmp_road->next) {
         tmp_road->len_road = get_len_of_road(tmp_road->data);
     }
     merge_sort(&list_roads);
+    return list_roads;
 }

@@ -17,32 +17,32 @@ int get_len_of_road(list_room_t *road)
     return len;
 }
 
-static bool is_node_inside_road(list_room_t *node, list_room_t *road)
+static list_room_t *is_node_inside_road(list_room_t *tmp_first_road,
+list_room_t *road)
 {
     list_room_t *tmp_road = road;
-    tmp_road = tmp_road->next;
-    for (; road->next->next != NULL; road = road->next) {
-        if (my_str_cmp(node->name_room, road->name_room) == 0) {
-            free(tmp_road);
-            return true;
+    for (;tmp_road->next != NULL; tmp_road = tmp_road->next) {
+        if (my_str_cmp(tmp_first_road->name_room, tmp_road->name_room) == 0) {
+            return NULL;
         }
     }
-    free(tmp_road);
-    return false;
+    return road;
 }
 
-bool is_common_node(list_room_t *road1, list_room_t *road2)
+list_room_t *find_second_road(list_road_t **road)
 {
-    list_room_t *node = road1;
-    list_room_t *tmp_road2 = road2;
-    for (; node->next != NULL; node = node->next) {
-        if (is_node_inside_road(node, tmp_road2) == true) {
-            free(node);
-            free(tmp_road2);
-            return true;
+    list_room_t *first_road = (*road)->data;
+    list_road_t *tmp_road = *road;
+    list_room_t *second_road = malloc(sizeof(list_road_t));
+    for (; tmp_road->next != NULL; tmp_road = tmp_road->next) {
+        list_room_t *tmp_first_road = first_road;
+        for (; tmp_first_road->next != NULL;
+        tmp_first_road = tmp_first_road->next) {
+            second_road = is_node_inside_road(tmp_first_road, tmp_road->data);
+        }
+        if (second_road != NULL) {
+            return second_road;
         }
     }
-    free(node);
-    free(tmp_road2);
-    return false;
+    return NULL;
 }
