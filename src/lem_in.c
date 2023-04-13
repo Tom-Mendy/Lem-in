@@ -35,6 +35,7 @@ int lem_in(void)
         return KO;
     }
     list_road_t *paths = list_all_road(&file_info_n);
+    display_all(file_info_n);
     sort_roads(paths);
     display_all(file_info_n);
     free_paths(paths);
