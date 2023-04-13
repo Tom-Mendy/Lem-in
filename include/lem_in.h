@@ -69,4 +69,5 @@
     void sort_roads(list_road_t *list_roads);
     void print_list(list_road_t *list_roads);
     int link_between_room(char *line, elt_t **array_list);
+    void display_all(file_info_t file_info_n);
 #endif /* !LEM_IN_H_ */
