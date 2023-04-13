@@ -35,6 +35,23 @@ int is_element_in_list(elt_t *array_list, char *start, char *end)
     return OK;
 }
 
+int loop_get_file_info(file_info_t *file_info_n)
+{
+    for (int i = 1; file_info_n->file[i] != NULL; i += 1) {
+        if (is_start_end(file_info_n->file, file_info_n, i) == KO)
+            return KO;
+        if (get_file_info_sub(file_info_n, file_info_n->file, i) == KO)
+            return KO;
+        display_title_room_tunnel(file_info_n, i);
+        if (!(file_info_n->room == 0 && my_str_cmp(file_info_n->file[i],
+        "##start") == 0)){
+            my_put_str(file_info_n->file[i]);
+            my_put_char('\n');
+        }
+    }
+    return OK;
+}
+
 int get_file_info(file_info_t *file_info_n)
 {
     file_info_n->file = my_load_stdin_in_array();
@@ -43,13 +60,14 @@ int get_file_info(file_info_t *file_info_n)
     if (*file_info_n->file == NULL)
         return KO;
     clear_commente_in_file(file_info_n->file);
-    if (is_start_end(file_info_n->file, file_info_n) == KO)
-        return KO;
     if (get_nb_ant(file_info_n, file_info_n->file) == KO)
         return KO;
-    for (int i = 1; file_info_n->file[i] != NULL; i += 1) {
-        if (get_file_info_sub(file_info_n, file_info_n->file, i) == KO)
-            return KO;
+    display_number_of_ant(file_info_n->nb_ant);
+    if (loop_get_file_info(file_info_n) == KO)
+        return KO;
+    if (file_info_n->start == 0 || file_info_n->end == 0){
+        free_map(file_info_n->file);
+        return KO;
     }
     if (is_element_in_list(file_info_n->array_list,
     file_info_n->name_start_room, file_info_n->name_end_room) == KO)

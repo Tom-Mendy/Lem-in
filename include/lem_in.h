@@ -21,6 +21,10 @@
         char *name_end_room;
         elt_t *array_list;
         char **file;
+        int start;
+        int end;
+        int room;
+        int tunnel;
     }file_info_t;
     typedef struct list_room_s{
         char * name_room;
@@ -48,7 +52,7 @@
     char **my_load_stdin_in_array(void);
     int clear_commente_in_file(char **file);
     int add_line_info_to_struct(char *line, elt_t **array_list);
-    int is_start_end(char **file, file_info_t *array_list);
+    int is_start_end(char **file, file_info_t *file_info_n, int i);
     int is_pipe_in_room_in_list(elt_t *array_list);
     int is_room_already_in_list(elt_t *array_list, char * name_room);
     int is_room_coordinate_already_in_list(elt_t *array_list, int x, int y);
@@ -70,4 +74,5 @@
     void print_list(list_road_t *list_roads);
     int link_between_room(char *line, elt_t **array_list);
     void display_all(file_info_t file_info_n);
+    int display_title_room_tunnel(file_info_t *file_info_n, int i);
 #endif /* !LEM_IN_H_ */
