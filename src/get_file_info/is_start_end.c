@@ -29,26 +29,19 @@ char const * const str)
     return OK;
 }
 
-int is_start_end(char **file, file_info_t *file_info_n)
+int is_start_end(char **file, file_info_t *file_info_n, int i)
 {
-    int start = 0;
-    int end = 0;
-    for (int i = 1; file[i] != NULL; i += 1){
-        if ((my_str_cmp(file[i], "##start") == OK && start == 1) ||
-        (my_str_cmp(file[i], "##end") == OK && start == 1 && end == 1))
-            return KO;
-        if (my_str_cmp(file[i], "##start") == OK)
-            start = 1;
-        if (get_nb_start_end(file, file_info_n, i, "##start") == KO)
-            return KO;
-        if (my_str_cmp(file[i], "##end") == OK && start == 1)
-            end = 1;
-        if (get_nb_start_end(file, file_info_n, i, "##end") == KO)
-            return KO;
-    }
-    if (start == 0 || end == 0){
-        free_map(file);
+    if ((my_str_cmp(file[i], "##start") == OK && file_info_n->start == 1) ||
+    (my_str_cmp(file[i], "##end") == OK && file_info_n->start == 1 &&
+    file_info_n->end == 1))
         return KO;
-    }
+    if (my_str_cmp(file[i], "##start") == OK)
+        file_info_n->start = 1;
+    if (get_nb_start_end(file, file_info_n, i, "##start") == KO)
+        return KO;
+    if (my_str_cmp(file[i], "##end") == OK && file_info_n->start == 1)
+        file_info_n->end = 1;
+    if (get_nb_start_end(file, file_info_n, i, "##end") == KO)
+        return KO;
     return OK;
 }

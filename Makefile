@@ -28,7 +28,9 @@ SRC			=	lem_in.c												\
 				get_file_info/is_room_in_list.c							\
 				get_file_info/is_room_coordinate_already_in_list.c		\
 				get_file_info/is_room_already_in_list.c					\
+				get_file_info/display_title_room_tunnel.c				\
 				get_file_info/link_between_room.c						\
+				get_file_info/display_number_of_ant.c					\
 				list_all_roads/put_end_list_road.c						\
 				list_all_roads/free_end_list_room.c						\
 				list_all_roads/display_list_possible_road.c				\
