@@ -39,6 +39,7 @@ SRC			=	lem_in.c												\
 				sort_roads/chose_bests_roads.c							\
 				sort_roads/sort_roads.c									\
 				display_all/move_ants.c									\
+				display_all/print_all_movements.c						\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 

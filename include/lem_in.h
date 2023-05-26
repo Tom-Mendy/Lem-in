@@ -83,5 +83,6 @@
     int display_title_room_tunnel(file_info_t *file_info_n, int i);
     int display_number_of_ant(int nb_ant);
     void move_ants(file_info_t file_info_n, list_road_t *paths);
-
+    int print_all_movements(int *roads, list_road_t *paths,
+    bool *check_display_line, file_info_t file_info_n);
 #endif /* !LEM_IN_H_ */
