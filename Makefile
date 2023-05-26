@@ -38,7 +38,7 @@ SRC			=	lem_in.c												\
 				list_all_roads/list_all_road.c							\
 				sort_roads/chose_bests_roads.c							\
 				sort_roads/sort_roads.c									\
-				display_all/move_ants.c
+				display_all/move_ants.c									\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
@@ -54,30 +54,37 @@ OBJ_MAIN	=	$(MAIN_SRC:.c=.o)
 
 OBJ			=	$(OBJ_DIR_SRC) $(OBJ_MAIN)
 
-LDLIBS		=	-L lib/ -l my_str -l my_printf -l my_linked_list -l my_int
+LDLIBS		=	-L lib/													\
+				-l my_str												\
+				-l my_printf											\
+				-l my_linked_list										\
+				-l my_int												\
 
-CPPFLAGS	=	-I include/ -I lib/my_str/include -I lib/my_printf/include\
-				-I lib/my_linked_list/include -I lib/my_int/include
+CPPFLAGS	=	-I include/												\
+				-I lib/my_str/include									\
+				-I lib/my_printf/include								\
+				-I lib/my_linked_list/include							\
+				-I lib/my_int/include									\
 
 CFLAGS		=	-Wall -Wextra -ggdb3
 
 NAME		=	lem_in
 
-LIBS		=	lib/libmy_str.a\
-				lib/libmy_printf.a\
-				lib/libmy_linked_list.a\
-				lib/libmy_int.a
+LIBS		=	lib/libmy_str.a											\
+				lib/libmy_printf.a										\
+				lib/libmy_linked_list.a									\
+				lib/libmy_int.a											\
 
 all: make_libs $(NAME)
 
 $(NAME):	$(LIBS) $(OBJ)
-	gcc -o $(NAME) $(OBJ) $(LDLIBS) $(CPPFLAGS) $(CFLAGS)
+		gcc -o $(NAME) $(OBJ) $(LDLIBS) $(CPPFLAGS) $(CFLAGS)
 
 make_libs:
-	make -C lib/my_int
-	make -C lib/my_str
-	make -C lib/my_printf
-	make -C lib/my_linked_list
+		make -C lib/my_int
+		make -C lib/my_str
+		make -C lib/my_printf
+		make -C lib/my_linked_list
 
 clean:
 		make clean -C lib/my_int
